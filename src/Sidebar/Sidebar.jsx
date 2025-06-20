@@ -8,10 +8,8 @@ const Sidebar = ({ handleChange, show, onClose }) => {
   return (
     <>
       <section className={`sidebar ${show ? "show" : ""}`}>
-        <div className="logo-container">
           <button className="close-btn" onClick={onClose}><IoClose />
           </button>
-        </div>
         <Category handleChange={handleChange} />
         <Price handleChange={handleChange} />
       </section>

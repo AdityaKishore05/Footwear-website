@@ -8,8 +8,8 @@ const Category = ({handleChange}) => {
     <>
       <h2 className="sidebar-title">Category</h2>
       <div>
-        <label htmlFor="" className="sidebar-label-container">
-        <input type="radio" onChange={handleChange} value="" name="test"/><span className="checkmark"></span>All
+        <label htmlFor="" className="sidebar-label-container ">
+        <input type="radio" onChange={handleChange} value="" name="test"/><span className="checkmark "></span>All
         </label>
         <Side handleChange={handleChange}
         value="sneakers"

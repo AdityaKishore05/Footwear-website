@@ -26,15 +26,14 @@ body {
   .main-content {
     background-color: #1e1e1e;
   }
-
-  .card {
-    background-color: #292929;
-    color: #f1f1f1;
-    box-shadow: 2px 2px 5px hsla(0, 0%, 100%, 0.1);
+  .search-input {
+    border: none;
   }
 
-  .card:hover {
-    box-shadow: 0 8px 8px rgba(255, 255, 255, 0.1);
+  .card {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    border: 2px solid #282828;
   }
 
   .card-title,
@@ -49,16 +48,14 @@ body {
 
   .btns{
     color: #eeeeee;
-    background-color: #292929;
+    background-color: #1e1e1e;
   }
 
   .toggle-sidebar-btn {
-    background-color: #1e1e1e;
     color: #eeeeee;
   }
 
   .close-btn{
-    background-color: #1e1e1e;
     color:#eeeeee;
   }
 
@@ -69,6 +66,8 @@ body {
 
   .sidebar{
     background-color: #1e1e1e;
+    border-right: 2px solid #5b5b5b;
+
   }
 
   .bag-icon {
@@ -77,6 +76,8 @@ body {
   nav{
     background-color: #1e1e1e;
     color: #f1f1f1;
+    border-bottom: 2px solid #c0c0c0;
+
   }
 }
 

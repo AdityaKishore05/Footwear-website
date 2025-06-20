@@ -1,5 +1,4 @@
 import Side from "../../components/Side";
-import "./Price.css";
 
 const Price = ({handleChange}) => {
   return (
