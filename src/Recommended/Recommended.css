@@ -1,31 +1,32 @@
 .recommended-flex {
   position: fixed;
-  width: 80%;
-  top: 100px;
+  left: 450px;
+  top: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 1;
+  z-index: 1000;
   user-select: none;
   margin-bottom: 1rem;
-  gap: 10px;
+  gap: 20px;
 
 }
 
 .btns {
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 20px;
-  padding: 5px 15px;
+  padding: 2px 15px;
   cursor: pointer;
   user-select: none;
-  border: 2px solid #5b5b5b;
+  border: none;
+  border-top: 2px solid #1e1e1e;
+  border-bottom: 2px solid #1e1e1e;
   background-color: white;
 }
 
 .btns:hover{
-    border-bottom: 3px solid #5b5b5b;
-    transition: 0.1s;
-    margin-top: 7px;
+  border-top: 3px solid #5b5b5b;
+  border-bottom: 3px solid #5b5b5b;
+  margin-top: 15px;
 }
 
 @media screen and (max-width: 1024px) {

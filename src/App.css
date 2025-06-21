@@ -49,6 +49,9 @@ body {
   .btns{
     color: #eeeeee;
     background-color: #1e1e1e;
+    border: none;
+    border-top: 2px solid #c0c0c0;
+    border-bottom: 2px solid #c0c0c0;
   }
 
   .toggle-sidebar-btn {
