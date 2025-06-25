@@ -26,14 +26,12 @@ body {
   .main-content {
     background-color: #1e1e1e;
   }
-  .search-input {
-    border: none;
-  }
+
 
   .card {
     background-color: #1e1e1e;
     color: #f1f1f1;
-    border: 2px solid #282828;
+    border: 2px solid #2e2e2e;
   }
 
   .card-title,
@@ -56,6 +54,7 @@ body {
 
   .toggle-sidebar-btn {
     color: #eeeeee;
+    background-color: #1e1e1e;
   }
 
   .close-btn{
@@ -65,12 +64,12 @@ body {
   .search-input{
     background-color: #292929;
     color: #eeeeee;
+    border: 2px solid #5b5b5b;
   }
 
   .sidebar{
     background-color: #1e1e1e;
-    border-right: 2px solid #5b5b5b;
-
+    border-right: 2px solid #c0c0c0;
   }
 
   .bag-icon {

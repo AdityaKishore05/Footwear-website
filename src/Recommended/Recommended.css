@@ -1,7 +1,5 @@
 .recommended-flex {
   position: fixed;
-  left: 450px;
-  top: 10px;
   display: flex;
   align-items: center;
   z-index: 1000;
@@ -11,8 +9,27 @@
   justify-content: center;
 }
 
+
+
+/* Original position */
+.recommended-flex.original-position {
+  position: fixed;
+  top: 30px; /* Adjust based on your layout */
+  transition: 0.5s;
+  left: 450px;
+}
+
+/* Stuck to top on scroll down */
+.recommended-flex.stick-to-top {
+  position: fixed;
+  top: 20px;
+  left: 450px;
+  transition: 0.5s;
+}
+
+
+
 .btns {
-  margin-top: 20px;
   font-size: 20px;
   padding: 2px 15px;
   cursor: pointer;
@@ -20,29 +37,39 @@
   border: none;
   border-top: 2px solid #1e1e1e;
   border-bottom: 2px solid #1e1e1e;
-  background-color: white;
-}
+  background-color: white;}
 
 .btns:hover{
   border-top: 3px solid #5b5b5b;
   border-bottom: 3px solid #5b5b5b;
-  margin-top: 15px;
+  margin-top: -3px;
 }
 
 @media screen and (max-width: 1024px) {
   .recommended-flex {
     position: fixed;
     align-items: start;
-    top: 115px;
-    left: 0;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    gap: 10px;
+  }
+  .recommended-flex.original-position {
+    position: fixed;
+    top: 120px; /* Adjust based on your layout */
+    left: 0;
+    transition: 0.5s;
+  }
+  .recommended-flex.stick-to-top {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    transition: 0.5s;
   }
 
   .btns {
     font-size: 18px;
-    padding: 5px 10px;
+    padding: 2px 6px;
   }
 
   .recommended-title {

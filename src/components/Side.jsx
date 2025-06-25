@@ -1,13 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-const Side = ({handleChange, value, title, name, color}) => {
+const Side = ({ handleChange, value, title, name, color }) => {
   return (
     <label className="sidebar-label-container">
-      <input onChange={handleChange} type="radio" value={value} name={name} />
-    <span className="checkmark" style={{backgorundColor:color}}></span>
+      <input
+        onChange={handleChange}
+        type="radio"
+        value={value}
+        name={name}
+      />
+      <span className="checkmark" style={{ backgroundColor: color }}></span>
       {title}
     </label>
-  )
-}
+  );
+};
 
-export default Side
+export default Side;

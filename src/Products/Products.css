@@ -20,7 +20,7 @@
   padding: 15px;
   background-color: #fff;
   cursor: pointer;
-  border: 1px solid #c0c0c0;
+  border: 2px solid #e7e6e6;
 }
 
 .card:hover {
@@ -88,7 +88,7 @@
   }
   .card-container {
     position: relative;
-    top: 105px;
+    top: 80px;
     gap: 3px;
     justify-content: space-around;
     margin: auto;

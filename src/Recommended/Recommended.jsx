@@ -1,23 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Recommended.css"
 import Button from "../components/Button"
 
-const Recommended = ({handleClick}) => {
+const Recommended = ({ handleClick }) => {
+  const [scrollDir, setScrollDir] = useState("up");
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const updateScrollDir = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY) {
+        setScrollDir("down");
+      } else {
+        setScrollDir("up");
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", updateScrollDir);
+    return () => window.removeEventListener("scroll", updateScrollDir);
+  }, []);
+
   return (
-    <>
-      <div>
-        <div className="recommended-flex">
-          <Button onClickHandler={handleClick} value="" title="All Products"></Button>
-          <Button onClickHandler={handleClick} value="Adidas" title="Adidas"></Button>
-          <Button onClickHandler={handleClick} value="Puma" title="Puma"></Button>
-          <Button onClickHandler={handleClick} value="Nike" title="Nike"></Button>
-          <Button onClickHandler={handleClick} value="Vans" title="Vans"></Button>
+    <div className={`recommended-flex ${scrollDir === "down" ? "stick-to-top" : "original-position"}`}>
+      <Button onClickHandler={handleClick} value="" title="All Products" />
+      <Button onClickHandler={handleClick} value="Dreampairs" title="Dreampairs" />
+      <Button onClickHandler={handleClick} value="Puma" title="Puma" />
+      <Button onClickHandler={handleClick} value="Nike" title="Nike" />
+      <Button onClickHandler={handleClick} value="Vans" title="Vans" />
+    </div>
+  );
+};
 
-        </div>
-      </div>
-      
-    </>
-  )
-}
-
-export default Recommended
+export default Recommended;
