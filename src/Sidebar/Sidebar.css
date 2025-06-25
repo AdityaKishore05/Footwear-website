@@ -18,7 +18,7 @@
 .close-btn {
   display: none;
   position: fixed;
-  top: 18px;
+  top: 15px;
   right: 1rem;
   z-index: 4;
   font-size: 2rem;
