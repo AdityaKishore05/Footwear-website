@@ -1,25 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import "./Recommended.css"
-import Button from "../components/Button"
+import React, { useEffect, useState } from 'react';
+import './Recommended.css';
+import Button from '../components/Button';
 
 const Recommended = ({ handleClick }) => {
   const [scrollDir, setScrollDir] = useState("up");
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
+    let ticking = false;
 
     const updateScrollDir = () => {
       const currentScrollY = window.scrollY;
+
+      // Ignore small layout shifts
+      if (Math.abs(currentScrollY - lastScrollY) < 10) {
+        ticking = false;
+        return;
+      }
+
       if (currentScrollY > lastScrollY) {
         setScrollDir("down");
       } else {
         setScrollDir("up");
       }
+
       lastScrollY = currentScrollY;
+      ticking = false;
     };
 
-    window.addEventListener("scroll", updateScrollDir);
-    return () => window.removeEventListener("scroll", updateScrollDir);
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (

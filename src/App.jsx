@@ -93,9 +93,16 @@ const App = () => {
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
+    let ticking = false;
   
-    const handleScroll = () => {
+    const updateScrollDir = () => {
       const currentScrollY = window.scrollY;
+  
+      if (Math.abs(currentScrollY - lastScrollY) < 10) {
+        // Ignore small scroll changes (e.g., caused by click-triggered layout shifts)
+        ticking = false;
+        return;
+      }
   
       if (currentScrollY > lastScrollY) {
         setScrollDir("down");
@@ -104,11 +111,23 @@ const App = () => {
       }
   
       lastScrollY = currentScrollY;
+      ticking = false;
     };
   
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+  
+    window.addEventListener("scroll", onScroll);
+  
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
+  
   
   return (
     <div className="app-container">
