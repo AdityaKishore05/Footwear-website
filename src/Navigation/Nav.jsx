@@ -1,25 +1,42 @@
-// Nav.jsx
 import React, { useEffect, useState } from "react";
 import "./nav.css";
 
 const Nav = ({ query, handleInputChange }) => {
   const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setShow(false); // Hide on scroll down
-      } else {
-        setShow(true); // Show on scroll up
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Ignore small scrolls (under 10px)
+      if (Math.abs(currentScrollY - lastScrollY) < 10) {
+        ticking = false;
+        return;
       }
-      setLastScrollY(window.scrollY);
+
+      if (currentScrollY > lastScrollY) {
+        setShow(false); // scrolling down
+      } else {
+        setShow(true); // scrolling up
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScroll);
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <nav className={`nav ${show ? "show" : "hide"}`}>
