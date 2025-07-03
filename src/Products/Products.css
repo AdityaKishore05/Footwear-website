@@ -88,7 +88,7 @@
   }
   .card-container {
     position: relative;
-    top: 80px;
+    top: 100px;
     gap: 3px;
     justify-content: space-around;
     margin: auto;
